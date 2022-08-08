@@ -1,5 +1,3 @@
-
-
 let employeeId = 1000;
 const netSalary = (level) => {
   let min = 0;
@@ -19,7 +17,7 @@ const netSalary = (level) => {
   }
 };
 
-const Employees = function (fullName, department, level, imageURL ) {
+const Employees = function (fullName, department, level, imageURL) {
   this.employeeId = employeeId++;
   this.fullName = fullName;
   this.department = department;
@@ -27,7 +25,6 @@ const Employees = function (fullName, department, level, imageURL ) {
   this.imageURL = imageURL;
   this.salary = netSalary(this.level);
 };
-
 
 const employee1 = new Employees(
   "Ghazi Samer",
@@ -69,23 +66,25 @@ const employee6 = new Employees(
 const arr = [employee1, employee2, employee3, employee4, employee5, employee6];
 console.log(employee1, employee2, employee3, employee4, employee5, employee6);
 //1- اعمل ديف
-// 2- اوصل ال body 
+// 2- اوصل ال body
 
 const body = document.getElementById("body");
-// وصلت ال بادي عن طريق ال id 
+const main = document.createElement("div");
+main.className = "main";
+// وصلت ال بادي عن طريق ال id
 
 for (let x = 0; x < arr.length; x++) {
-
-
   const onePerson = document.createElement("div");
-  // صناعة ال div بدي انشأ ديف 
+  // صناعة ال div بدي انشأ ديف
 
-
-  body.appendChild(onePerson);
-  // حطيت ال الديف داخل البادي 
+  body.appendChild(main);
+  main.appendChild(onePerson);
+  // حطيت ال الديف داخل البادي
 
   const fullName = document.createElement("p");
   // <p></p>
+  const employeeId= document.createElement("p");
+
   const department = document.createElement("p");
 
   const level = document.createElement("p");
@@ -93,16 +92,18 @@ for (let x = 0; x < arr.length; x++) {
   const img = document.createElement("img");
   img.src = arr[x].imageURL;
   fullName.textContent = `Name : ${arr[x].fullName}`;
-  // حطيت جوا ال p 
+  employeeId.textContent = `ID : ${arr[x].employeeId}`;
+  // حطيت جوا ال p
   department.textContent = `Department : ${arr[x].department}`;
   level.textContent = `Level : ${arr[x].level}`;
   salary.textContent = `Salary : ${arr[x].salary}`;
   onePerson.appendChild(img);
   onePerson.appendChild(fullName);
-  // حطيت ال p داخل ال div 
+  onePerson.appendChild(employeeId);
+  // حطيت ال p داخل ال div
   onePerson.appendChild(department);
   onePerson.appendChild(level);
   onePerson.appendChild(salary);
-img.className="img"
-onePerson.className= 'div'
+  img.className = "img";
+  onePerson.className = "div";
 }
